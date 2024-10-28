@@ -1,0 +1,75 @@
+{# templates/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Application Pokémon{% endblock %}
+
+{% block body %}
+<div class="container mt-5 text-center">
+    <h1>Bienvenue dans l'Application Pokémon</h1>
+    <p class="lead">Gérez vos Pokémon facilement avec les options ci-dessous.</p>
+
+    <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Importer des Pokémon</h5>
+                </div>
+                <div class="card-body">
+                    <p>Récupérez les 151 premiers Pokémon depuis PokeAPI.</p>
+                    <a href="{{ path('pokemon_import') }}" class="btn btn-primary">Importer</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Créer un Pokémon</h5>
+                </div>
+                <div class="card-body">
+                    <p>Ajoutez un nouveau Pokémon à votre base de données.</p>
+                    <a href="{{ path('pokemon_create') }}" class="btn btn-success">Créer</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Liste des Pokémon</h5>
+                </div>
+                <div class="card-body">
+                    <p>Consultez la liste de tous vos Pokémon.</p>
+                    <a href="{{ path('pokemon_list') }}" class="btn btn-info">Voir la liste</a>
+                </div>
+                    </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-warning text-white">
+                    <h5 class="mb-0">Modifier un Pokémon</h5>
+                </div>
+                <div class="card-body">
+                    <p>Modifiez les informations d'un Pokémon existant.</p>
+                    <a href="{{ path('pokemon_edit', {'id': '1'}) }}" class="btn btn-warning">Modifier</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">Supprimer un Pokémon</h5>
+                </div>
+                <div class="card-body">
+                    <p>Supprimez un Pokémon de votre base de données.</p>
+                    <a href="{{ path('pokemon_delete', {'id': '1'}) }}" class="btn btn-danger">Supprimer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,52 @@
+{# templates/pokemon/list.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Pokémon{% endblock %}
+
+{% block body %}
+<div class="container mt-5 text-center">
+    <h1>Liste des Pokémon</h1>
+
+    <h2 class="mt-4">Pokémon récupérés de PokeAPI</h2>
+    <div class="row">
+        {% for pokemon in pokemons %}
+            {% if not pokemon.isManual %}
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-header text-white bg-primary">
+                            <strong>#{{ pokemon.numeroPokedex }}</strong>
+                        </div>
+                        <a href="{{ path('pokemon_detail', {'id': pokemon.id}) }}">
+                            <img src="{{ pokemon.image }}" class="card-img-top" alt="{{ pokemon.nom }}">
+                        </a>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ pokemon.nom | capitalize }}</h5>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <h2 class="mt-4">Pokémon créés manuellement</h2>
+    <div class="row">
+        {% for pokemon in pokemons %}
+            {% if pokemon.isManual %}
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-header text-white bg-success">
+                            <strong>#{{ pokemon.numeroPokedex }}</strong>
+                        </div>
+                        <a href="{{ path('pokemon_detail', {'id': pokemon.id}) }}">
+                            <img src="{{ pokemon.image }}" class="card-img-top" alt="{{ pokemon.nom }}">
+                        </a>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ pokemon.nom | capitalize }}</h5>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

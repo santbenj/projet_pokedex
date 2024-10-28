@@ -1,0 +1,66 @@
+/* assets/css/styles.css */
+
+/* Couleurs des types de Pokémon */
+.badge.fire {
+    background-color: #f08030; /* Couleur pour le type Feu */
+}
+
+.badge.water {
+    background-color: #6890f0; /* Couleur pour le type Eau */
+}
+
+.badge.grass {
+    background-color: #78c850; /* Couleur pour le type Plante */
+}
+
+.badge.electric {
+    background-color: #f8d030; /* Couleur pour le type Électrique */
+}
+
+.badge.ice {
+    background-color: #98d8d8; /* Couleur pour le type Glace */
+}
+
+.badge.fighting {
+    background-color: #c03028; /* Couleur pour le type Combat */
+}
+
+.badge.poison {
+    background-color: #a040a0; /* Couleur pour le type Poison */
+}
+
+.badge.ground {
+    background-color: #e0c068; /* Couleur pour le type Sol */
+}
+
+.badge.flying {
+    background-color: #a890f0; /* Couleur pour le type Vol */
+}
+
+.badge.psychic {
+    background-color: #f85888; /* Couleur pour le type Psy */
+}
+
+.badge.bug {
+    background-color: #a8b820; /* Couleur pour le type Insecte */
+}
+
+.badge.rock {
+    background-color: #b8a038; /* Couleur pour le type Roche */
+}
+
+.badge.ghost {
+    background-color: #705898; /* Couleur pour le type Spectre */
+}
+
+.badge.dragon {
+    background-color: #7038f8; /* Couleur pour le type Dragon */
+}
+
+.badge.dark {
+    background-color: #705848; /* Couleur pour le type Ténèbres */
+}
+
+.badge.fairy {
+    background-color: #f0b6bc; /* Couleur pour le type Fée */
+}

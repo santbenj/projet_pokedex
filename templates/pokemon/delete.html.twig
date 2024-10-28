@@ -1,0 +1,16 @@
+{# templates/pokemon/delete.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Supprimer un Pokémon{% endblock %}
+
+{% block body %}
+<div class="container mt-5 text-center">
+    <h1>Confirmer la Suppression</h1>
+    <p>Êtes-vous sûr de vouloir supprimer le Pokémon <strong>{{ pokemon.nom | capitalize }}</strong> ?</p>
+
+    <div class="mt-4">
+        <a href="{{ path('pokemon_list') }}" class="btn btn-secondary">Annuler</a>
+        <a href="{{ path('pokemon_delete', {'id': pokemon.id}) }}" class="btn btn-danger">Confirmer la Suppression</a>
+    </div>
+</div>
+{% endblock %}

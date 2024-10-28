@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Importer des Pokémon{% endblock %}
+
+{% block body %}
+<div class="container text-center">
+    <h1 class="my-4">Importer les 151 premiers Pokémon</h1>
+    <p>Cliquez sur le bouton ci-dessous pour commencer l'importation.</p>
+    
+    <form id="importForm" method="post" action="{{ path('pokemon_import') }}">
+        <button type="submit" class="btn btn-primary">Importer</button>
+    </form>
+
+    <div class="progress mt-4" style="display: none;" id="progressBarContainer">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="progressBar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+    </div>
+
+    {% if importStatus is not null %}
+        <div class="alert alert-info mt-4">
+            {{ importStatus }}
+        </div>
+    {% endif %}
+</div>
+
+<script>
+    document.getElementById('importForm').onsubmit = function() {
+        // Afficher la barre de progression
+        document.getElementById('progressBarContainer').style.display = 'block';
+        
+        // Initialiser la progression
+        let progressBar = document.getElementById('progressBar');
+        let progress = 0;
+
+        // Simuler l'importation avec un intervalle
+        let interval = setInterval(function() {
+            if (progress >= 100) {
+                clearInterval(interval);
+            } else {
+                progress += 1; // Incrémenter la progression
+                progressBar.style.width = progress + '%';
+                progressBar.setAttribute('aria-valuenow', progress);
+                progressBar.innerText = progress + '%';
+            }
+        }, 100); // Ajustez la vitesse de l'intervalle selon vos besoins
+
+        // Optionnel : Utiliser AJAX pour obtenir l'état d'importation
+        // let ajaxInterval = setInterval(function() {
+        //     fetch('/pokemon/import/status') // Remplacez par votre route pour obtenir l'état
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             progress = data.progress; // Supposons que votre serveur renvoie un pourcentage
+        //             progressBar.style.width = progress + '%';
+        //             progressBar.setAttribute('aria-valuenow', progress);
+        //             progressBar.innerText = progress + '%';
+
+        //             if (progress >= 100) {
+        //                 clearInterval(ajaxInterval);
+        //             }
+        //         });
+        // }, 1000); // Vérifiez l'état toutes les secondes
+    };
+</script>
+{% endblock %}
